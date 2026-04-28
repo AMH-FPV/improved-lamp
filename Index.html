@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Altahruni | Project Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --accent-light: #38bdf8;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-summary {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.1);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .expertise-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item.current::before {
+            background: var(--success);
+            box-shadow: 0 0 0 3px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--accent-light);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .timeline-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-desc li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Education Section */
+        .education-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .edu-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            background: rgba(14, 165, 233, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .edu-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-content .school {
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-content .year {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+            color: var(--success);
+        }
+
+        .cert-text {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        /* Languages */
+        .languages-grid {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lang-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .lang-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .lang-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .lang-level {
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--secondary);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-light);
+            transform: translateY(-3px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: rgba(14, 165, 233, 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">AA.</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Project Manager</div>
+            <h1>Ahmad Mohammad <span>Altahruni</span></h1>
+            <p class="hero-subtitle">Telecommunications & FTTH Infrastructure Specialist</p>
+            <p class="hero-summary">
+                Project Manager with 20+ years of experience in FTTH infrastructure expansion, network quality improvement, 
+                and large-scale telecommunications projects in Saudi Arabia. Proven record of managing site activities, 
+                overseeing subcontractor performance, and ensuring compliance with STC standards.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">KSA</span>
+                    <span class="stat-label">Based In</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#experience" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> View Experience
+                </a>
+                <a href="mailto:Ahmad@shllal.net" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <div class="section-header fade-in">
+            <h2>Core Expertise</h2>
+            <p>Specialized skills developed over two decades in telecommunications</p>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3>Project Leadership</h3>
+                <p>FTTH Infrastructure, Stakeholder Relations, and Workflow Optimization for seamless project delivery.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Technical Management</h3>
+                <p>Optical Fiber Installation, OLT to ONT Field Inspections, and OSP Civil Work expertise.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>Quality & Compliance</h3>
+                <p>QMS Enforcement, Project Auditing, and ISO Standards implementation and certification.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Strategic Coordination</h3>
+                <p>KPI Tracking, Resource Management, and Stakeholder Communication at all levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2>Professional Experience</h2>
+            <p>A journey through telecommunications excellence in Saudi Arabia</p>
+        </div>
+        <div class="experience-timeline">
+            <div class="timeline-item current">
+                <div class="timeline-header">
+                    <div>
+                        <div class="timeline-title">Project Manager</div>
+                        <div class="timeline-company">Mawarid Electronic Company</div>
+                    </div>
+                    <span class="timeline-date">2022 – Present</span>
+                </div>
+                <div class="timeline-location">
+                    <i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Develop and execute comprehensive project plans, managing all phases from design to commissioning</li>
+                        <li>Oversee site activities, including construction and fiber installation</li>
+                        <li>Manage subcontractors, resources, and quality control processes</li>
+                        <li>Secure approvals, manage public relations, and ensure compliance with standards</li>
+                        <li>Track KPIs, report progress, and oversee testing and final acceptance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <div class="timeline-title">Quality Control Specialist</div>
+                        <div class="timeline-company">Saudi Telecom Company (STC)</div>
+                    </div>
+                    <span class="timeline-date">2015 – 2022</span>
+                </div>
+                <div class="timeline-location">
+                    <i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Improved quality practices and collaborated with functional leaders to create tailored procedures and quality plans</li>
+                        <li>Planned and implemented project audits while introducing enhancements and providing departmental feedback</li>
+                        <li>Conducted field inspections for FTTH projects from OLT to ONT, including civil work (OSP)</li>
+                        <li>Oversaw the enforcement of quality management policies and managed external audits</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <div class="timeline-title">Project Coordinator & IT Manager</div>
+                        <div class="timeline-company">Nitaq Telecommunication Company (NTC)</div>
+                    </div>
+                    <span class="timeline-date">2013 – 2015</span>
+                </div>
+                <div class="timeline-location">
+                    <i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Worked with the Project Team to ensure participation in furthering project goals</li>
+                        <li>Managed communications and deliverables from all teams and tracked project accomplishments</li>
+                        <li>Coordinated, escalated, and proposed resolutions to project issues that arose</li>
+                        <li>Handled the project's purchase orders</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <div class="timeline-title">Senior Supervisor / Project Coordinator</div>
+                        <div class="timeline-company">Trans TeleCom</div>
+                    </div>
+                    <span class="timeline-date">2011 – 2013</span>
+                </div>
+                <div class="timeline-location">
+                    <i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Senior supervisor in optical fiber installation service</li>
+                        <li>Supervisor for the FTTH for special and V.I.P. clients in STC</li>
+                        <li>Project coordinator between the site, financial department, and analysis department</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <div class="timeline-title">Multi Role and Duties</div>
+                        <div class="timeline-company">Mersal - AlJazeera</div>
+                    </div>
+                    <span class="timeline-date">2008 – 2011</span>
+                </div>
+                <div class="timeline-location">
+                    <i class="fas fa-map-marker-alt"></i> KSA
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Site technician for FTTH cabinets</li>
+                        <li>Established a workshop for installation and weld training</li>
+                        <li>Managed final delivery of STC FTTH cabinets in Riyadh and Jubail</li>
+                        <li>Led FTTX installation for the Defense Ministry and RADCO projects in Jubail</li>
+                        <li>Managed OSP civil work related to STC standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2>Education & Certifications</h2>
+            <p>Academic foundation and professional credentials</p>
+        </div>
+
+        <div class="education-card fade-in" style="margin-bottom: 3rem;">
+            <div class="edu-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="edu-content">
+                <h3>Bachelor of Computer Science</h3>
+                <div class="school">Mansoura University, Egypt</div>
+                <div class="year">Graduated 2004</div>
+            </div>
+        </div>
+
+        <div class="section-header fade-in" style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.5rem;">Professional Certifications</h3>
+        </div>
+
+        <div class="certs-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-text">Lead Auditor ISO 9001:2015</div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-text">Software AG ARIS Certificates</div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-text">ISO 9001:2008 & 2015 Training</div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-text">AVAYA Office V2 Installation</div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-text">PHP & Web Development</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section>
+        <div class="section-header fade-in">
+            <h2>Languages</h2>
+            <p>Communication capabilities across borders</p>
+        </div>
+        <div class="languages-grid">
+            <div class="lang-item fade-in">
+                <div class="lang-flag">🇸🇦</div>
+                <div class="lang-name">Arabic</div>
+                <div class="lang-level">Proficient (Native)</div>
+            </div>
+            <div class="lang-item fade-in">
+                <div class="lang-flag">🇬🇧</div>
+                <div class="lang-name">English</div>
+                <div class="lang-level">Upper Intermediate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section fade-in">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Let's Connect</h2>
+                <p>Ready to discuss your next telecommunications project</p>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:Ahmad@shllal.net" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Ahmad@shllal.net</span>
+                </a>
+                <a href="tel:+9660555634319" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+966 055 563 4319</span>
+                </a>
+                <div class="contact-item" style="cursor: default;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Riyadh, Saudi Arabia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ahmad Mohammad Altahruni. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Project Manager | Telecommunications Specialist | FTTH Expert</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.9)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate stats on load
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+            const text = stat.textContent;
+            if (!isNaN(text)) {
+                let current = 0;
+                const target = parseInt(text);
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 30);
+            }
+        });
+    </script>
+</body>
+</html>
